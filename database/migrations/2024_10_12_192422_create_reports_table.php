@@ -16,6 +16,10 @@ return new class extends Migration
             $table->primary('id');
             $table->string('number');
             $table->text('description');
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('statuses');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

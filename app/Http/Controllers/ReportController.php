@@ -22,7 +22,9 @@ class ReportController extends Controller
     public function add(Request $req)
     {
         $data = $req->validate(['number' => 'required|string', 'description' => 'required|string']);
-        $data['id'] = Report::max('id') + 1;
+        $data['id'] = Report::withTrashed()->max('id') + 1;
+        $data['status_id'] = 1;
+        $data['user_id'] = $req->user()->id;
         Report::create($data);
         return redirect()->back();
     }
