@@ -4,43 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
+use App\Models\Status;
 
 class ReportController extends Controller
 {
-    public function index()
+    public function index(Request $req)
     {
-        $reports = Report::all();
-        return view('report.index', compact('reports'));
-    }
+        if ($req->user()->isAdmin()) {
+            return redirect('/admin');
+        }
 
-    public function destroy(Report $report)
-    {
-        $report -> delete();
-        return redirect()->back();
+        $reports = Report::where('user_id', $req->user()->id)->orderby('updated_at', 'desc')->get();
+        $statuses = Status::all();
+        $colors = [1 => 'text-yellow-300', 2 => 'text-green-700', 3 => 'text-red-700'];
+        return view('dashboard', compact('reports', 'statuses', 'colors'));
     }
 
     public function add(Request $req)
     {
-        $data = $req->validate(['number' => 'required|string', 'description' => 'required|string']);
+        $data = $req->validate(['number' => 'required|string|alpha_num', 'description' => 'required|string']);
+        if (strlen(trim($data['description'])) === 0) {
+            return redirect()->back();
+        }
         $data['id'] = Report::withTrashed()->max('id') + 1;
         $data['status_id'] = 1;
         $data['user_id'] = $req->user()->id;
         Report::create($data);
-        return redirect()->back();
-    }
-
-    public function show(Report $report)
-    {
-        return view('report.show', compact('report'));
-    }
-
-    public function update(Request $req, Report $report)
-    {
-        $data = $req->validate(['number' => 'required|string', 'description' => 'required|string']);
-        $data['id'] = Report::max('id') + 1;
-        $report['number'] = $data['number'];
-        $report['description'] = $data['description'];
-        $report->save();
-        return redirect('/reports');
+        return redirect('/');
     }
 }
