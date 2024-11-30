@@ -60,4 +60,8 @@ class User extends Authenticatable
     public function isAdmin() {
         return $this->role === self::ADMIN_ROLE;
     }
+
+    public function fullName() {
+        return $this->surname.' '.$this->name.' '.$this->middlename;
+    }
 }
