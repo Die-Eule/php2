@@ -2,23 +2,51 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <!-- Surname -->
+        <div>
+            <x-input-label for="surname" :value="__('Фамилия')" />
+            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('surname')" class="mt-2" />
+        </div>
+
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Имя')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        <!-- Patranomic -->
+        <div>
+            <x-input-label for="patranomic" :value="__('Отчество')" />
+            <x-text-input id="patranomic" class="block mt-1 w-full" type="text" name="patranomic" :value="old('patranomic')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('patranomic')" class="mt-2" />
+        </div>
+
+        <!-- login -->
+        <div>
+            <x-input-label for="login" :value="__('Логин')" />
+            <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('login')" class="mt-2" />
+        </div>
+
+        <!-- Phone -->
+        <div>
+            <x-input-label for="mobile" :value="__('Номер мобильного телефона')" />
+            <x-text-input id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('mobile')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Электронноая почта')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Пароль')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -30,7 +58,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Подтверждение пароля')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
