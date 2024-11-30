@@ -16,7 +16,7 @@ class ReportController extends Controller
 
         $reports = Report::where('user_id', $req->user()->id)->orderby('updated_at', 'desc')->get();
         $statuses = Status::all();
-        $colors = [1 => 'text-yellow-300', 2 => 'text-green-700', 3 => 'text-red-700'];
+        $colors = [1 => 'text-yellow-300', 2 => 'text-green-400', 3 => 'text-red-700'];
         return view('dashboard', compact('reports', 'statuses', 'colors'));
     }
 
