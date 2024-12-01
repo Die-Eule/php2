@@ -5,28 +5,28 @@
         <!-- Surname -->
         <div>
             <x-input-label for="surname" :value="__('Фамилия')" />
-            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="name" />
+            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="family-name" />
             <x-input-error :messages="$errors->get('surname')" class="mt-2" />
         </div>
 
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Имя')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="given-name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Patranomic -->
         <div>
             <x-input-label for="patranomic" :value="__('Отчество')" />
-            <x-text-input id="patranomic" class="block mt-1 w-full" type="text" name="patranomic" :value="old('patranomic')" required autofocus autocomplete="name" />
+            <x-text-input id="patranomic" class="block mt-1 w-full" type="text" name="patranomic" :value="old('patranomic')" required autofocus autocomplete="additional-name" />
             <x-input-error :messages="$errors->get('patranomic')" class="mt-2" />
         </div>
 
         <!-- login -->
         <div>
             <x-input-label for="login" :value="__('Логин')" />
-            <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="name" />
+            <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('login')" class="mt-2" />
         </div>
 
@@ -40,7 +40,7 @@
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Электронноая почта')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
