@@ -44,7 +44,9 @@
             </x-primary-button>
             <p class="px-3">or</p>
             <x-secondary-button>
-                <a href="{{ route('register') }}">Register</a>
+                <x-nav-link :href="route('register')">
+                        {{ __('Register') }}
+                </x-nav-link>
             </x-secondary-button>
         </div>
     </form>

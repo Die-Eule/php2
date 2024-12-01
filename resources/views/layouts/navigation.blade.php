@@ -3,11 +3,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <!-- <header class="bg-white dark:bg-gray-800"> -->
-            <a href="{{ route('dashboard') }}">
+            <x-nav-link :href="route('dashboard')">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ config('app.name', 'Demo') }}
                 </div>
-            </a>
+            </x-nav-link>
             <!-- </header> -->
 
             <!-- Settings Dropdown -->

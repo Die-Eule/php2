@@ -1,5 +1,5 @@
 <x-app-layout>
-<x-slot name="header">
+    <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Список заявок') }}
         </h2>
@@ -9,9 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <a href="{{ route('reports.new') }}">
-                        <button class="bg-green-100 hover:bg-green-200 p-1">создать заявление</button>
-                    </a>
+                    <x-nav-link :href="route('reports.new')">
+                        {{ __('создать заявление') }}
+                    </x-nav-link>
                     <div class='w-full p-20'>
                         <div class="grid grid-cols-[10%_60%_15%_15%] gap-4 place-content-around">
                             <p class="font-bold">Номер</p>
