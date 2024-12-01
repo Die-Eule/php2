@@ -22,13 +22,14 @@ class ReportController extends Controller
 
     public function add(Request $req)
     {
-        $data = $req->validate(['number' => 'required|string|alpha_num', 'description' => 'required|string']);
-        if (strlen(trim($data['description'])) === 0) {
-            return redirect()->back();
-        }
+        $data = $req->validate([
+            'number' => ['required','string','alpha_num','regex:/^[ABCEHKMOPTX][0-9]{3}[ABCEHKMOPTX]{2}[0-9]{2,3}$/i'],
+            'description' => ['required','string']
+        ]);
         $data['id'] = Report::withTrashed()->max('id') + 1;
         $data['status_id'] = 1;
         $data['user_id'] = $req->user()->id;
+        $data['number'] = strtoupper($data['number']);
         Report::create($data);
         return redirect('/');
     }
