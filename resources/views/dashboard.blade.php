@@ -12,6 +12,7 @@
                     <x-nav-link :href="route('reports.new')">
                         {{ __('создать заявление') }}
                     </x-nav-link>
+                    @include('layouts.flash-messages')
                     <div class='w-full p-20'>
                         <div class="grid grid-cols-[10%_60%_15%_15%] gap-4 place-content-around">
                             <p class="font-bold">Номер</p>

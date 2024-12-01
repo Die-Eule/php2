@@ -31,6 +31,6 @@ class ReportController extends Controller
         $data['user_id'] = $req->user()->id;
         $data['number'] = strtoupper($data['number']);
         Report::create($data);
-        return redirect('/');
+        return redirect()->route('dashboard')->with('info', 'Заявление отправлено на рассмотрение');
     }
 }
