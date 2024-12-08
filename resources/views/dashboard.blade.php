@@ -13,17 +13,17 @@
                         {{ __('создать заявление') }}
                     </x-nav-link>
                     @include('layouts.flash-messages')
-                    <div class='w-full p-20'>
-                        <div class="grid grid-cols-[10%_60%_15%_15%] gap-4 place-content-around">
-                            <p class="font-bold">Номер</p>
-                            <p class="font-bold">Описание</p>
-                            <p class="font-bold">Дата создания</p>
-                            <p class="font-bold">Статус</p>
+                    <div class='w-full sm:p-5 md:p-10 lg:p-20'>
+                        <div class="grid grid-cols-1 lg:grid-cols-[6rem_minmax(0,1fr)_10rem_7rem] gap-4">
+                            <p class="font-bold hidden lg:block">Номер</p>
+                            <p class="font-bold hidden lg:block">Описание</p>
+                            <p class="font-bold hidden lg:block">Дата создания</p>
+                            <p class="font-bold hidden lg:block">Статус</p>
                             @foreach ($reports as $report)
-                                <p class="text-base">{{$report['number']}}</p>
-                                <p class="text-base">{{$report['description']}}</p>
+                                <p class="text-base underline lg:no-underline">{{$report['number']}}</p>
+                                <p class="text-base break-words bg-slate-100 lg:bg-inherit">{{$report['description']}}</p>
                                 <p class="text-base">{{$report['created_at']}}</p>
-                                <p class="text-base {{$colors[$report->status_id]}}">{{$statuses->find($report->status_id)->name}}</p>
+                                <p class="text-base {{$colors[$report->status_id]}} border-gray-500 border-b-2 lg:border-0">{{$statuses->find($report->status_id)->name}}</p>
                             @endforeach
                         </div>
                     </div>
