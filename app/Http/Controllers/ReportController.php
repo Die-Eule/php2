@@ -14,7 +14,7 @@ class ReportController extends Controller
             return redirect('/admin');
         }
 
-        $reports = Report::where('user_id', $req->user()->id)->orderby('updated_at', 'desc')->get();
+        $reports = Report::where('user_id', $req->user()->id)->orderby('updated_at', 'desc')->paginate(5);
         $statuses = Status::all();
         $colors = [1 => 'text-yellow-300', 2 => 'text-green-400', 3 => 'text-red-700'];
         return view('dashboard', compact('reports', 'statuses', 'colors'));

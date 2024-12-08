@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $reports = Report::orderBy('status_id')->orderBy('updated_at','desc')->get();
+        $reports = Report::orderBy('status_id')->orderBy('updated_at','desc')->paginate(5);
         $statuses = Status::all();
         return view('admin.index', compact('reports', 'statuses'));
     }

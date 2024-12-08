@@ -29,6 +29,7 @@
                     </div>
                 </div>
             </div>
+            {{ $reports->links() }}
         </div>
     </div>
 </x-app-layout>
