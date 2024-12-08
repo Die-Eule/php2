@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <div class='w-full p-20'>
+                    <div class='w-full sm:p-5 md:p-10 lg:p-20'>
                         <form method="POST" action="{{ route('reports.add') }}">
                             @csrf
                             <div class="flex flex-col gap-4">
@@ -18,7 +18,7 @@
                                     id="number" 
                                     name="number"
                                     placeholder="X999XX99(9)"
-                                    required class="border w-40" />
+                                    required class="border w-[7em] px-2" />
                                 <x-input-error :messages="$errors->get('number')" class="mt-2" />
                                 <textarea
                                     name="description"
