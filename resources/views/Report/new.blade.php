@@ -28,7 +28,7 @@
                                     required class="border"></textarea>
                                 <x-input-error :messages="$errors->get('description')" class="mt-2" />
                                 <div class="flex flex-wrap">
-                                    <input type="submit" value="Добавить" class="bg-green-100 hover:bg-green-200 w-40">
+                                    <input type="submit" value="Добавить" class="bg-green-100 hover:bg-green-200 w-40 rounded-md">
                                     <x-secondary-button class="m-2">
                                         <x-nav-link :href="route('dashboard')">{{ __('Отмена') }}</x-nav-link>
                                     </x-secondary-button>
